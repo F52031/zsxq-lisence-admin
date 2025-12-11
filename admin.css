@@ -339,3 +339,161 @@ tr:hover {
     padding: 2px 6px;
     border-radius: 4px;
 }
+
+/* 移动端汉堡菜单按钮 */
+.mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* 移动端响应式设计 */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        bottom: 0;
+        width: 250px;
+        z-index: 999;
+        transition: left 0.3s ease;
+    }
+    
+    .sidebar.active {
+        left: 0;
+    }
+    
+    .main {
+        width: 100%;
+    }
+    
+    .topbar {
+        padding: 15px 20px 15px 70px;
+    }
+    
+    .topbar h1 {
+        font-size: 18px;
+    }
+    
+    .content {
+        padding: 15px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-header {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .card-header > div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+    
+    /* 表格横向滚动 */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    th, td {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .btn-sm {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .code {
+        font-size: 11px;
+        word-break: break-all;
+    }
+}
+
+/* 平板适配 */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .nav-item {
+        padding: 12px 20px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .content {
+        padding: 20px;
+    }
+}
+
+/* 遮罩层 */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
+}
