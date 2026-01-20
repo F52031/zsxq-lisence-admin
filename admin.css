@@ -396,271 +396,28 @@ tr:hover {
 @media (max-width: 768px) {
     body {
         flex-direction: column;
-        height: auto;
-        min-height: 100vh;
     }
     
-    /* 侧边栏 */
     .sidebar {
         width: 100%;
         height: auto;
-        position: sticky;
-        top: 0;
-        z-index: 100;
     }
     
-    .logo {
-        padding: 15px 20px;
-    }
-    
-    .logo h1 {
-        font-size: 18px;
-    }
-    
-    /* 导航 */
     .nav {
         display: flex;
         overflow-x: auto;
-        overflow-y: hidden;
         padding: 0;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-    
-    .nav::-webkit-scrollbar {
-        display: none;
     }
     
     .nav-item {
         flex-direction: column;
-        padding: 12px 15px;
+        padding: 10px;
         min-width: 80px;
-        text-align: center;
-        font-size: 12px;
-        white-space: nowrap;
-        border-left: none;
-        border-bottom: 3px solid transparent;
-    }
-    
-    .nav-item.active {
-        border-left: none;
-        border-bottom: 3px solid white;
     }
     
     .nav-item .icon {
         margin-right: 0;
         margin-bottom: 5px;
-        font-size: 18px;
-    }
-    
-    /* 顶部栏 */
-    .topbar {
-        padding: 15px 20px;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    .topbar h2 {
-        font-size: 20px;
-        width: 100%;
-    }
-    
-    .topbar-actions {
-        width: 100%;
-        justify-content: flex-start;
-    }
-    
-    /* 页面内容 */
-    .page {
-        padding: 15px;
-    }
-    
-    /* 统计卡片 */
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    
-    .stat-card {
-        padding: 15px;
-    }
-    
-    .stat-value {
-        font-size: 24px;
-    }
-    
-    /* 卡片 */
-    .card {
-        border-radius: 8px;
-        margin-bottom: 15px;
-    }
-    
-    .card-header {
-        padding: 15px;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    .card-header h3 {
-        font-size: 16px;
-        width: 100%;
-    }
-    
-    .card-actions {
-        width: 100%;
-        justify-content: flex-start;
-    }
-    
-    .card-body {
-        padding: 15px;
-    }
-    
-    /* 表单 */
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .form-control {
-        font-size: 16px; /* 防止 iOS 自动缩放 */
-    }
-    
-    /* 按钮 */
-    .btn {
-        padding: 12px 16px;
-        font-size: 14px;
-        width: 100%;
-    }
-    
-    .btn-sm {
-        padding: 8px 12px;
-        font-size: 12px;
-        width: auto;
-    }
-    
-    /* 表格 */
-    table {
-        display: block;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        white-space: nowrap;
-    }
-    
-    thead {
-        display: table-header-group;
-    }
-    
-    tbody {
-        display: table-row-group;
-    }
-    
-    tr {
-        display: table-row;
-    }
-    
-    th, td {
-        padding: 10px 8px;
-        font-size: 13px;
-    }
-    
-    /* 消息提示 */
-    .message {
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        padding: 12px 15px;
-        font-size: 13px;
-    }
-    
-    /* 登录框 */
-    .login-box {
-        padding: 30px 20px;
-        width: 90%;
-    }
-    
-    .login-box h2 {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
-    
-    /* 分页 */
-    .pagination {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    .pagination button {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
-}
-
-/* 小屏幕优化 */
-@media (max-width: 480px) {
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .stat-card {
-        padding: 12px;
-    }
-    
-    .stat-value {
-        font-size: 20px;
-    }
-    
-    .topbar h2 {
-        font-size: 18px;
-    }
-    
-    .card-header h3 {
-        font-size: 15px;
-    }
-    
-    th, td {
-        padding: 8px 6px;
-        font-size: 12px;
-    }
-    
-    .btn {
-        padding: 10px 12px;
-        font-size: 13px;
-    }
-    
-    .btn-sm {
-        padding: 6px 10px;
-        font-size: 11px;
-    }
-    
-    .nav-item {
-        min-width: 70px;
-        padding: 10px 12px;
-        font-size: 11px;
-    }
-    
-    .nav-item .icon {
-        font-size: 16px;
-    }
-}
-
-/* 横屏优化 */
-@media (max-width: 768px) and (orientation: landscape) {
-    .sidebar {
-        position: relative;
-    }
-    
-    .nav {
-        flex-wrap: wrap;
-    }
-    
-    .nav-item {
-        flex: 1 1 auto;
-        min-width: 100px;
     }
 }
 
@@ -720,63 +477,4 @@ tr:hover {
     font-size: 14px;
     margin-top: 15px;
     min-height: 20px;
-}
-
-/* 触摸优化 */
-@media (hover: none) and (pointer: coarse) {
-    /* 移动设备触摸优化 */
-    .btn, .nav-item, a, button {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-        touch-action: manipulation;
-    }
-    
-    /* 增加可点击区域 */
-    .btn-sm {
-        padding: 10px 14px;
-        min-height: 36px;
-    }
-    
-    /* 表格行点击优化 */
-    tr {
-        cursor: pointer;
-    }
-}
-
-/* 防止文本选择（移动端） */
-.nav-item, .btn, .badge {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* 滚动条优化 */
-.page::-webkit-scrollbar {
-    width: 8px;
-}
-
-.page::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-.page::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 4px;
-}
-
-.page::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* 移动端滚动优化 */
-.page {
-    -webkit-overflow-scrolling: touch;
-}
-
-.nav {
-    -webkit-overflow-scrolling: touch;
-}
-
-table {
-    -webkit-overflow-scrolling: touch;
 }
