@@ -37,8 +37,8 @@
                 <span>密钥管理</span>
             </a>
             <a href="#devices" class="nav-item" onclick="showPage('devices')">
-                <span class="icon">📱</span>
-                <span>设备管理</span>
+                <span class="icon">🚫</span>
+                <span>封禁管理</span>
             </a>
             <a href="#ipManage" class="nav-item" onclick="showPage('ipManage')">
                 <span class="icon">🌐</span>
@@ -209,20 +209,75 @@
             </div>
         </div>
 
-        <!-- 设备管理 -->
+        <!-- 封禁管理 -->
         <div id="devices" class="page">
+            <!-- 封禁 IP -->
             <div class="card">
                 <div class="card-header">
-                    <h3>查询设备</h3>
+                    <h3>🚫 封禁 IP 地址</h3>
                 </div>
                 <div class="card-body">
+                    <p class="hint">💡 封禁后该 IP 无法使用插件，已激活的会话也会失效</p>
                     <div class="form-row">
-                        <input type="text" id="deviceLicense" class="form-control" placeholder="输入密钥">
-                        <button class="btn btn-primary" onclick="queryDevices()">🔍 查询</button>
+                        <input type="text" id="banIPInput" class="form-control" placeholder="输入要封禁的 IP 地址" style="flex: 1;">
+                        <button class="btn btn-danger" onclick="banIPAction()">🚫 封禁 IP</button>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h4>已封禁的 IP 列表</h4>
+                        <div id="bannedIPsList"></div>
                     </div>
                 </div>
             </div>
-            <div id="devicesResult"></div>
+
+            <!-- 封禁密钥 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>🔒 封禁密钥</h3>
+                </div>
+                <div class="card-body">
+                    <p class="hint">💡 封禁后该密钥无法激活，已激活的设备也会失效</p>
+                    <div class="form-row">
+                        <input type="text" id="banLicenseInput" class="form-control" placeholder="输入要封禁的密钥" style="flex: 1;">
+                        <button class="btn btn-danger" onclick="banLicenseAction()">🔒 封禁密钥</button>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <h4>已封禁的密钥列表</h4>
+                        <div id="bannedLicensesList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 封禁设备 -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>📱 封禁设备 ID</h3>
+                </div>
+                <div class="card-body">
+                    <p class="hint">💡 封禁后该设备无法使用插件，需要同时指定密钥和设备ID</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>密钥</label>
+                            <input type="text" id="banDeviceLicense" class="form-control" placeholder="输入密钥">
+                        </div>
+                        <div class="form-group">
+                            <label>设备 ID</label>
+                            <input type="text" id="banDeviceId" class="form-control" placeholder="输入设备 ID">
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" onclick="banDeviceAction()">📱 封禁设备</button>
+                    
+                    <div style="margin-top: 20px;">
+                        <h4>查询密钥的设备列表</h4>
+                        <div class="form-row">
+                            <input type="text" id="queryDeviceLicense" class="form-control" placeholder="输入密钥查询设备">
+                            <button class="btn btn-primary" onclick="queryDevicesForBan()">🔍 查询</button>
+                        </div>
+                        <div id="devicesForBanResult" style="margin-top: 15px;"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- IP 管理 -->
@@ -315,7 +370,12 @@
             <div class="card">
                 <div class="card-header">
                     <h3>操作日志</h3>
-                    <button class="btn" onclick="loadLogs()">🔄 刷新</button>
+                    <div class="card-actions">
+                        <input type="text" id="logSearchKeyword" class="form-control" placeholder="搜索密钥、IP、用户名..." style="width: 300px;">
+                        <button class="btn" onclick="searchLogs()">🔍 搜索</button>
+                        <button class="btn" onclick="clearLogSearch()">✖️ 清除</button>
+                        <button class="btn" onclick="loadLogs()">🔄 刷新</button>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div id="logsContainer"></div>
